@@ -1,0 +1,5 @@
+<div class="row" *ngFor="let container of storageContainers">
+  <div class="col-md-12">
+    <a [routerLink]="['/storage/container',container.id]">{{container.description}}</a>
+  </div>
+</div>
