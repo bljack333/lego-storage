@@ -6,11 +6,14 @@ import { catchError } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 
 import { IStorageArea, IContainer, ContainerTypeEnum, IContainerDivision } from '../models';
+import { BaseService } from '../shared/base.service';
 
 @Injectable()
-export class StorageService {
+export class StorageService extends BaseService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { 
+      super();
+    }
 
   getAreas(): Observable<IStorageArea[]> {
     return this.http.get<IStorageArea[]>('/api/storageAreas').pipe(catchError(this.handleError<IStorageArea[]>('getAreas', [])));
@@ -33,10 +36,4 @@ export class StorageService {
     return this.http.post('/api/storageAreas', JSON.stringify(newArea), httpOptions).pipe(catchError(this.handleError<IStorageArea[]>('addArea', [])));
   }
 
-  private handleError<T>( operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result);
-    }
-  }
 }
