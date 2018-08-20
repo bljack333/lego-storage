@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMySet } from '../models';
+import { ThemePipe } from '../shared/pipes/theme.pipe';
 
 @Component({
   selector: 'set-card',

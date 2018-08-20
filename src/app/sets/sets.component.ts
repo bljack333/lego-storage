@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMySet, SetState } from '../models';
 import { SetsService } from './sets.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sets',
@@ -14,13 +15,13 @@ export class SetsComponent implements OnInit {
   boxed: Array<IMySet>;
   unclassified: Array<IMySet>;
 
-  constructor(private setsService: SetsService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   getAllSets() {
-    this.setsService.getMySets().subscribe(allSets => {
+    this.route.snapshot.data.sets.subscribe(allSets => {
 
       allSets.forEach(set => {
         if (set.setState === SetState.Displayed) {

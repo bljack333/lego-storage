@@ -25,3 +25,9 @@ export enum SetState {
     Boxed,
     PartedOut
 }
+
+export interface ITheme {
+    id: number;
+    parentId: number;
+    name: string;
+}
