@@ -7,5 +7,5 @@ export const appRoutes: Routes = [
     { path: 'parts', loadChildren: () => PartsModule },
     { path: 'storage', loadChildren: () => StorageModule },
     { path: 'sets', loadChildren: () => SetsModule },
-    { path: '', redirectTo: '/parts', pathMatch: 'full'}
+    { path: '', redirectTo: '/storage', pathMatch: 'full'}
   ]
