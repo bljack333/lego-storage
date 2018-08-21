@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PartsRoutingModule } from './parts-routing.module';
+import { RouterModule } from '@angular/router';
+import { partsRoutes } from './parts.routes';
 
 @NgModule({
   imports: [
     CommonModule,
-    PartsRoutingModule
+    RouterModule.forChild(partsRoutes)
   ],
   declarations: []
 })

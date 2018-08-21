@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar.component';
 
 import { appRoutes } from './routes';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   declarations: [
     AppComponent,

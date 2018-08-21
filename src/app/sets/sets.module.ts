@@ -1,17 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '../../../node_modules/@angular/router';
+import { RouterModule } from '@angular/router';
 import { setRoutes } from './sets.routes';
 import { SetsComponent } from './sets.component';
 import { OnDisplayComponent } from '../on-display/on-display.component';
 import { BoxedComponent } from '../boxed/boxed.component';
 import { PartedOutComponent } from '../parted-out/parted-out.component';
+import { SetCardComponent } from './set-card.component';
+import { SetsService } from './sets.service';
+import { SharedModule } from '../shared/shared.module';
+import { SetsResolver } from './sets-resolver';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(setRoutes),
+    SharedModule
   ],
-  declarations: [SetsComponent, OnDisplayComponent, BoxedComponent, PartedOutComponent]
+  declarations: [
+    SetsComponent,
+    OnDisplayComponent,
+    BoxedComponent,
+    PartedOutComponent,
+    SetCardComponent],
+  providers: [
+    SetsService,
+    SetsResolver
+  ]
 })
 export class SetsModule { }

@@ -6,37 +6,28 @@ import { catchError } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 
 import { IStorageArea, IContainer, ContainerTypeEnum, IContainerDivision } from '../models';
+import { BaseService } from '../shared/services/base.service';
 
 @Injectable()
-export class StorageService {
+export class StorageService extends BaseService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { 
+      super();
+    }
 
   getAreas(): Observable<IStorageArea[]> {
-    return this.http.get<IStorageArea[]>('/api/storageAreas').pipe(catchError(this.handleError<IStorageArea[]>('getAreas', [])));
+    return this.http.get<IStorageArea[]>(this.baseUrl + '/api/storageAreas', this.httpOptions).pipe(catchError(this.handleError<IStorageArea[]>('getAreas', [])));
   }
 
   getAreasContainers(areaId: number): Observable<IContainer[]> {
-    return this.http.get<IContainer[]>('/api/storageAreas/' + areaId + '/containers')
+    return this.http.get<IContainer[]>(this.baseUrl + '/api/storageAreas/' + areaId + '/containers/', this.httpOptions)
     .pipe(
       catchError(this.handleError<IContainer[]>('getAreasContainers', []))
     );
   }
 
   addArea(newArea: IStorageArea) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-      })
-    };
-
-    return this.http.post('/api/storageAreas', JSON.stringify(newArea), httpOptions).pipe(catchError(this.handleError<IStorageArea[]>('addArea', [])));
+    return this.http.post(this.baseUrl + '/api/storageAreas/', JSON.stringify(newArea), this.httpOptions).pipe(catchError(this.handleError<IStorageArea[]>('addArea', [])));
   }
 
-  private handleError<T>( operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result);
-    }
-  }
 }
