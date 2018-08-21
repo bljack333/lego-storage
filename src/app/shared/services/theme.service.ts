@@ -13,6 +13,6 @@ export class ThemeService extends BaseService {
   }
 
   getTheme(id: number) : Observable<ITheme> {
-    return this.http.get<ITheme>('/api/themes/' + id + '/', this.httpOptions).pipe(catchError(this.handleError<ITheme>('getTheme')));
+    return this.http.get<ITheme>('/api/themes/' + id, this.httpOptions).pipe(catchError(this.handleError<ITheme>('getTheme')));
   }
 }
