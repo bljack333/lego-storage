@@ -1,32 +1,90 @@
-<div class="row">
-  <div class="col-md-6">
-    <br />
-    <h4>On Display</h4>
-    <br />
-    <br />
-    <a class="nav-link" [routerLink]="['/on-display']">See All. . .</a>
+<div class="short-list">
+  <div class="row">
+    <div class="col-md-6">
+      <br />
+      <h4>On Display</h4>
+      <br />
+      <br />
+      <div *ngIf="displayed?.count > 0">
+        <div class="row" *ngFor="let set of displayed">
+          <div class="col-md-12">
+            <set-card [set]="set"></set-card>
+          </div>
+        </div>
+        <a class="nav-link" [routerLink]="['/on-display']">See All. . .</a>
+      </div>
+      <div *ngIf="!displayed || displayed?.count === 0">
+        <div class="row">
+          <div class="col-md-12">
+            No Displayed Sets <a class="nav-link" [routerLink]="['/on-display/add']">Add one</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <br />
+      <h4>Boxed</h4>
+      <br />
+      <br />
+      <div *ngIf="boxed?.count > 0">
+        <div class="row" *ngFor="let set of boxed">
+          <div class="col-md-12">
+            <set-card [set]="set"></set-card>
+          </div>
+        </div>
+        <a class="nav-link" [routerLink]="['/boxed']">See All. . .</a>
+      </div>
+      <div *ngIf="!boxed || boxed?.count === 0">
+        <div class="row">
+          <div class="col-md-12">
+            No Boxed Sets <a class="nav-link" [routerLink]="['/on-boxed/add']">Add one</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-    <br />
-    <h4>Boxed</h4>
-    <br />
-    <br />
-    <a class="nav-link" [routerLink]="['/boxed']">See All. . .</a>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <br />
-    <h4>Parted Out</h4>
-    <br />
-    <br />
-    <a class="nav-link" [routerLink]="['/parted-out']">See All. . .</a>
-  </div>
-  <div class="col-md-6">
-    <br />
-    <h4>Not classified</h4>
-    <br />
-    <br />
-    <a class="nav-link" [routerLink]="['/not-classified']">See All. . .</a>
+  <div class="row">
+    <div class="col-md-6">
+      <br />
+      <h4>Parted Out</h4>
+      <br />
+      <br />
+      <div *ngIf="partedOut?.count > 0">
+        <div class="row" *ngFor="let set of partedOut">
+          <div class="col-md-12">
+            <set-card [set]="set"></set-card>
+          </div>
+        </div>
+        <a class="nav-link" [routerLink]="['/parted-out']">See All. . .</a>
+      </div>
+      <div *ngIf="!partedOut || partedOut?.count === 0">
+        <div class="row">
+          <div class="col-md-12">
+            No Parted Out Sets <a class="nav-link" [routerLink]="['/parted-out/add']">Add one</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <br />
+      <h4>Not classified</h4>
+      <br />
+      <br />
+      <div *ngIf="unclassified?.count > 0">
+        <div class="row" *ngFor="let set of unclassified">
+          <div class="col-md-12">
+            <set-card [set]="set"></set-card>
+          </div>
+        </div>
+        <a class="nav-link" [routerLink]="['/not-classified']">See All. . .</a>
+      </div>
+      <div *ngIf="!unclassified || unclassified?.count === 0">
+        <div class="row">
+          <div class="col-md-12">
+            No Unclassified Sets <a class="nav-link" [routerLink]="['/not-classified/add']">Add one</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
