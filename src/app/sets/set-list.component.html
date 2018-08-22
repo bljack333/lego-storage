@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12">Sets in my Rebrickable Collection, but not in my Local Collection</div>
+</div>
+<div class="accordion" id="setList">
+  <div class="card" *ngFor="let group of groups">
+    <div class="card-header" id="header_{{group.id}}">
+      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse_{{group.id}}" aria-controls="collapse_{{group.id}}">{{group.name}}</button>
+    </div>
+    <div id="collapse{{group.id}}" class="collapse" aria-labelledby="header_{{group.id}}" data-parent="#setList">
+      <div class="row" >
+        <div class="col-md-3" *ngFor="let set of group.sets">
+          <set-card [set]="set"></set-card>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

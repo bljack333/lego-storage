@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <br />
-      <h4>On Display</h4>
+      <a class="nav-link" [routerLink]="['/on-display/add']"><h4>On Display</h4>&nbsp;+</a>
       <br />
       <br />
       <div *ngIf="displayed?.count > 0">
@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-6">
       <br />
-      <h4>Boxed</h4>
+      <a class="nav-link" [routerLink]="['/on-boxed/add']"><h4>Boxed</h4>&nbsp;+</a>
       <br />
       <br />
       <div *ngIf="boxed?.count > 0">
@@ -46,7 +46,7 @@
   <div class="row">
     <div class="col-md-6">
       <br />
-      <h4>Parted Out</h4>
+      <a class="nav-link" [routerLink]="['/parted-out/add']"><h4>Parted Out</h4>&nbsp;+</a>
       <br />
       <br />
       <div *ngIf="partedOut?.count > 0">
@@ -67,7 +67,7 @@
     </div>
     <div class="col-md-6">
       <br />
-      <h4>Not classified</h4>
+      <a class="nav-link" [routerLink]="['/not-classified/add']"><h4>Not classified</h4>&nbsp;+</a>
       <br />
       <br />
       <div *ngIf="unclassified?.count > 0">

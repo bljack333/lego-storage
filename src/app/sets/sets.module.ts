@@ -10,11 +10,16 @@ import { SetCardComponent } from './set-card.component';
 import { SetsService } from './sets.service';
 import { SharedModule } from '../shared/shared.module';
 import { SetsResolver } from './sets-resolver';
+import { SetFormComponent } from './set-form.component';
+import { SetListComponent } from './set-list.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(setRoutes),
+    ReactiveFormsModule,
+    FormsModule,
     SharedModule
   ],
   declarations: [
@@ -22,7 +27,9 @@ import { SetsResolver } from './sets-resolver';
     OnDisplayComponent,
     BoxedComponent,
     PartedOutComponent,
-    SetCardComponent],
+    SetCardComponent,
+    SetFormComponent,
+    SetListComponent],
   providers: [
     SetsService,
     SetsResolver

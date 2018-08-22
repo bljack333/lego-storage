@@ -23,7 +23,8 @@ export interface IMySet {
 export enum SetState {
     Displayed,
     Boxed,
-    PartedOut
+    PartedOut,
+    Unknown
 }
 
 export interface ITheme {
