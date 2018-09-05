@@ -1,18 +1,20 @@
-export interface IPart {
-    categories: Array<IPartCategory>;
+export interface IMyPart {
+    name: string;
+    partNumber: string;
+    quantity: number;
+    partUrl: string;
+    partImageUrl: string;
+    category: IPartCategory;
     colors: Array<IColor>;
-    source: SourceEnum;
 }
 
 export interface IColor {
-
+    id: number;
+    name: string;
+    rgb: string;
+    isTransparent: boolean;
 }
 
 export interface IPartCategory {
 
-}
-
-export enum SourceEnum {
-    Bricklink,
-    PickABrick
 }

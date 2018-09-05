@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PartsService } from './parts.service';
+import { IMyPart } from '../models';
 
 @Component({
   selector: 'app-parts',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private partsService: PartsService) { }
 
   ngOnInit() {
+    this.partsService.getParts().subscribe(parts => this.parts = parts);
   }
 
+  parts: IMyPart[];
 }
