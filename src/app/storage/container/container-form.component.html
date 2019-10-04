@@ -1,0 +1,30 @@
+<form [formGroup]="containerForm" autocomplete="off" novalidate (ngSubmit)="saveContainer()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="formGroup">
+        <label for="description">Description</label>
+        <input type="text" formControlName="description" class="form-control">
+      </div>
+      <div class="formGroup">
+        <label for="rows">Rows</label>
+        <input type="text" formControlName="rows" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="formGroup">
+        <label for="location">Location</label>
+        <input type="text" formControlName="location" class="form-control">
+      </div>
+      <div class="formGroup">
+        <label for="columns">Columns</label>
+        <input type="text" formControlName="columns" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-default">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</form>

@@ -33,6 +33,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   providers: [
     SetsService,
     SetsResolver
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class SetsModule { }

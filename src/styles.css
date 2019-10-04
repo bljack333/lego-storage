@@ -3,4 +3,9 @@
 /* Parts - dk red: 720E0F
 /* Sets - dk green: 184632
 /* Text - black: 05131D */
-@import "~bootstrap/dist/css/bootstrap.min.css"
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.mar-top-20 {
+    margin-top: 20px;
+}

@@ -15,6 +15,7 @@ import { PartCardComponent } from './part-card.component';
   declarations: [PartsComponent, PartCardComponent],
   providers: [
     PartsService
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class PartsModule { }

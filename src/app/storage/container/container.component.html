@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row mar-top-20">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Container</h3>
+        </div>
+        <div class="col-md-2 col-md-offset-6">
+          <button class="btn" (click)="editContainer()">Edit</button>
+        </div>
+      </div>
+      <div class="row mar-top-20">
+        <div class="col-md-2">Description:</div>
+        <div class="col-md-4">{{container.description}}</div>
+        <div class="col-md-2">Location:</div>
+        <div class="col-md-4">{{container.location}}</div>
+      </div>
+      <div class="row mar-top-20">
+        <div class="col-md-2">Type:</div>
+        <div class="col-md-4">{{container.type}}</div>
+        <div class="col-md-2">Storage Area:</div>
+        <div class="col-md-4">{{area?.name}}</div>
+      </div>
+      <div class="row mar-top-20">
+        <div class="col-md-2">Rows:</div>
+        <div class="col-md-4">{{container.rows}}</div>
+        <div class="col-md-2">Columns:</div>
+        <div class="col-md-4">{{container.columns}}</div>
+      </div>
+      <!-- Slot List -->
+    </div>
+  </div>
+</div>
+ 

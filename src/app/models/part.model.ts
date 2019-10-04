@@ -16,5 +16,6 @@ export interface IColor {
 }
 
 export interface IPartCategory {
-
+    id: number;
+    name: string;
 }

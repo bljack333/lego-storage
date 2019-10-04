@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { IMySet } from '../models';
 
 @Component({
   selector: 'app-set-list',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./set-list.component.scss']
 })
 export class SetListComponent implements OnInit {
+
+  @Input() group: Array<IMySet>;
 
   constructor() { }
 

@@ -1,33 +1,33 @@
-export interface IContainerDivision {
+export interface ContainerDivision {
     id: number;
     type: ContainerDivisionTypeEnum;
     parts: Array<string>; // Part Ids, can be null
     other: string; // screws, dividers, etc.
 }
 
-export interface IContainer {
+export class Container {
     id: number;
-    divisions: Array<IContainerDivision>;
-    type: ContainerTypeEnum;
+    divisions: Array<ContainerDivision>;
+    containerType: ContainerTypeEnum;
     description: string;
     location: string;
     storageAreaId: number;
     rows: number;
     columns: number;
-    slots: Array<IContainerDivisionSlot>;
+    slots: Array<ContainerDivisionSlot>;
 }
 
-export interface IStorageArea {
+export class StorageArea {
     id: number;
     name: string;
     description: string;
 }
 
-export interface IContainerDivisionSlot {
+export interface ContainerDivisionSlot {
     id: number;
     row: number;
     column: number;
-    containerDivision: IContainerDivision;
+    containerDivision: ContainerDivision;
 }
 
 export enum ContainerDivisionTypeEnum {

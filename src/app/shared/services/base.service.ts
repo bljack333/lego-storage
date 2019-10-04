@@ -7,12 +7,12 @@ export class BaseService {
 
   constructor() { }
 
-  baseUrl: string = "http://localhost:56619";
+  baseUrl = 'http://localhost:56619';
 
   protected httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' , 'Accept': 'application/json'} )
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' , 'Accept': 'application/json', 'Access-Control-Allow-Origin': '*'} )
   };
-  
+
   protected handleError<T>( operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

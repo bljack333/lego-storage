@@ -12,7 +12,7 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
     HttpClientModule,
     SharedModule
   ],

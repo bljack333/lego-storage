@@ -1,0 +1,21 @@
+<div style="padding:5px;" class="card" [routerLink]="['/storage/areas/', container.storageAreaId, 'containers', container.id]">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>{{containerType(container.containerType)}}</h3>
+      <p>{{container.description}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div>{{container.location}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <button type="button" class="btn" (click)="addSlot()">Add Slot</button>
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn" (click)="addDivision()">Add Division</button>
+    </div>
+  </div>
+</div>

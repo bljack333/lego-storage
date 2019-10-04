@@ -1,0 +1,24 @@
+<div style="padding-top: 20px;" *ngIf="!showList">
+  <div class="row">
+    <div class="col-md-3">
+      <button class="btn btn-default" type="button" (click)="addContainer()">Add Container</button>
+    </div>
+  </div>
+</div>
+<div style="padding: 20px;">
+  <div class="row" *ngIf="!showList">
+    <div class="col-md-5" *ngFor="let container of storageContainers">
+      <div style="padding: 20px">
+        <app-container-card [container]="container"></app-container-card>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showList">
+    <div class="row" *ngFor="let container of storageContainers">
+      <div class="col-md-12">
+        <a [routerLink]="['/storage/areas/' + areaId +'/containers',container.id]">{{container.description}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+

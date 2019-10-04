@@ -13,10 +13,12 @@ export class SetsService extends BaseService {
    }
 
   getMySets(): Observable<IMySet[]> {
+    // tslint:disable-next-line:max-line-length
     return this.http.get<IMySet[]>(this.baseUrl + '/api/sets', this.httpOptions).pipe(catchError(this.handleError<IMySet[]>('getMySets', [])));
   }
 
   getSetsByState(setState: SetState): Observable<IMySet[]> {
+    // tslint:disable-next-line:max-line-length
     return this.http.get<IMySet[]>(this.baseUrl + '/api/sets/' + setState, this.httpOptions).pipe(catchError(this.handleError<IMySet[]>('getSetsByState', [])));
   }
 }

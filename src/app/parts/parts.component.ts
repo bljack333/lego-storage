@@ -9,11 +9,14 @@ import { IMyPart } from '../models';
 })
 export class PartsComponent implements OnInit {
 
+  parts: IMyPart[];
+  page = 1;
+  pageSize = 20;
+
   constructor(private partsService: PartsService) { }
 
   ngOnInit() {
-    this.partsService.getParts().subscribe(parts => this.parts = parts);
+    this.partsService.getParts(this.page, this.pageSize).subscribe(parts => this.parts = parts);
   }
 
-  parts: IMyPart[];
 }

@@ -1,0 +1,24 @@
+<div style="padding:5px;" class="card" [routerLink]="['/storage/areas/', area.id]">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>{{area?.name | uppercase}}</h3>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-default" (click)="viewContainers()">Containers</button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-default" (click)="removeArea(area.id)">Delete</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div>{{area?.description}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div style="padding-top: 20px">List of Storage Containers</div>
+    </div>
+  </div>
+  <app-container-list [storageContainers]="storageContainers" [areaId]="area.id"></app-container-list>
+</div>
