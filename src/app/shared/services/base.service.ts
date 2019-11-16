@@ -17,7 +17,7 @@ export class BaseService {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result);
-    }
+    };
   }
 
 }

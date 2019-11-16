@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Container } from '../../models';
 import { StorageService } from '../storage.service';
-import { Observable, EMPTY} from 'rxjs';
-import { of } from 'rxjs/observable/of';
+import { Observable, EMPTY,  of } from 'rxjs';
 import { take, mergeMap } from 'rxjs/operators';
 
 @Injectable()

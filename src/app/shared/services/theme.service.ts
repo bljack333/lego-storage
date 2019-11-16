@@ -12,7 +12,8 @@ export class ThemeService extends BaseService {
     super();
   }
 
-  getTheme(id: number) : Observable<ITheme> {
-    return this.http.get<ITheme>('/api/themes/' + id, this.httpOptions).pipe(catchError(this.handleError<ITheme>('getTheme')));
+  getTheme(id: number): Observable<ITheme> {
+    return this.http.get<ITheme>(this.baseUrl + '/api/themes/' + id, this.httpOptions)
+      .pipe(catchError(this.handleError<ITheme>('getTheme')));
   }
 }

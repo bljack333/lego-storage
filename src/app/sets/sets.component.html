@@ -1,9 +1,9 @@
 <div class="short-list">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <br />
       <a class="nav-link" [routerLink]="['/on-boxed/add']">
-        <h4>Boxed</h4>&nbsp;+
+        <h4>Boxed</h4>&nbsp;
       </a>
       <br />
       <br />
@@ -59,7 +59,7 @@
       <br />
       <div *ngIf="unclassified?.length > 0">
         <div class="row" *ngFor="let set of unclassified">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <set-card [set]="set"></set-card>
           </div>
         </div>

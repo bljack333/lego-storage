@@ -12,10 +12,8 @@ export class ThemePipe implements PipeTransform {
 
   transform(value: any, args?: any): string {
     this.themeService.getTheme(value).subscribe(t => {
-      this.themeName = t.name;
+      return t.name;
     });
-
-    return this.themeName;
   }
 
 }
