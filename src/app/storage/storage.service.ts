@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { StorageArea, Container, ContainerTypeEnum, ContainerDivision } from '../models';
+import { StorageLocation, Container, ContainerTypeEnum, ContainerDivision } from '../models';
 import { BaseService } from '../shared/services/base.service';
 
 @Injectable()
@@ -13,32 +13,32 @@ export class StorageService extends BaseService {
       super();
     }
 
-  getAreas(): Observable<StorageArea[]> {
-    return this.http.get<StorageArea[]>(this.baseUrl + '/api/storageAreas', this.httpOptions)
-      .pipe(catchError(this.handleError<StorageArea[]>('getAreas', [])));
+  getLocations(): Observable<StorageLocation[]> {
+    return this.http.get<StorageLocation[]>(this.baseUrl + '/api/storageLocations', this.httpOptions)
+      .pipe(catchError(this.handleError<StorageLocation[]>('getLocations', [])));
   }
 
-  getAreasContainers(areaId: number): Observable<Container[]> {
-    return this.http.get<Container[]>(this.baseUrl + '/api/storageAreas/' + areaId + '/containers/', this.httpOptions)
+  getLocationsContainers(locationId: number): Observable<Container[]> {
+    return this.http.get<Container[]>(this.baseUrl + '/api/storageLocations/' + locationId + '/containers/', this.httpOptions)
     .pipe(
-      catchError(this.handleError<Container[]>('getAreasContainers', []))
+      catchError(this.handleError<Container[]>('getLocationsContainers', []))
     );
   }
 
-  addArea(newArea: StorageArea) {
-    return this.http.post(this.baseUrl + '/api/storageAreas/', JSON.stringify(newArea), this.httpOptions)
-      .pipe(catchError(this.handleError<StorageArea[]>('addArea', [])));
+  addLocation(newLocation: StorageLocation) {
+    return this.http.post(this.baseUrl + '/api/storageLocations/', JSON.stringify(newLocation), this.httpOptions)
+      .pipe(catchError(this.handleError<StorageLocation[]>('addLocation', [])));
   }
 
-  getArea(areaId: number): Observable<StorageArea> {
-    return this.http.get<StorageArea>(this.baseUrl + '/api/StorageAreas/' + areaId, this.httpOptions)
-      .pipe(map(area => area ));
-      // .pipe(catchError(this.handleError<StorageArea>('getArea', null)));
+  getLocation(locationId: number): Observable<StorageLocation> {
+    return this.http.get<StorageLocation>(this.baseUrl + '/api/storageLocations/' + locationId, this.httpOptions)
+      .pipe(map(location => location ));
+      // .pipe(catchError(this.handleError<StorageLocation>('getLocation', null)));
   }
 
-  saveArea(area: StorageArea) {
-    return this.http.post(this.baseUrl + '/api/storageAreas/' + area.id, JSON.stringify(area), this.httpOptions)
-      .pipe(catchError(this.handleError<StorageArea[]>('addArea', [])));
+  saveLocation(location: StorageLocation) {
+    return this.http.post(this.baseUrl + '/api/storageLocations/' + location.id, JSON.stringify(location), this.httpOptions)
+      .pipe(catchError(this.handleError<StorageLocation[]>('addLocation', [])));
   }
 
   getContainer(containerId: number) {
@@ -46,8 +46,8 @@ export class StorageService extends BaseService {
       .pipe(map(container => container));
   }
 
-  removeArea(areaId: number) {
-    return this.http.delete(this.baseUrl + '/api/storageAreas/' + areaId, this.httpOptions);
+  removeLocation(locationId: number) {
+    return this.http.delete(this.baseUrl + '/api/storageLocations/' + locationId, this.httpOptions);
   }
 
   saveContainer(container: Container) {

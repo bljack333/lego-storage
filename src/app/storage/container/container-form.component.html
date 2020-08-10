@@ -3,21 +3,27 @@
     <div class="col-md-6">
       <div class="formGroup">
         <label for="description">Description</label>
-        <input type="text" formControlName="description" class="form-control">
+        <input type="text" formControlName="description" id="description" class="form-control" tabindex="1">
       </div>
       <div class="formGroup">
-        <label for="rows">Rows</label>
-        <input type="text" formControlName="rows" class="form-control">
+        <label for="containerType">Container Type</label>
+        <select formControlName="containerType" id="containerType" class="form-control" tabindex="3">
+          <option *ngFor="let type of containerTypes" [value]=type>{{enumMapper[type]}}</option>
+        </select>
+      </div>
+      <div class="formGroup">
+        <label for="columns">Columns</label>
+        <input type="text" formControlName="columns" id="columns" class="form-control" tabindex="5">
       </div>
     </div>
     <div class="col-md-6">
       <div class="formGroup">
         <label for="location">Location</label>
-        <input type="text" formControlName="location" class="form-control">
+        <input type="text" formControlName="location" id="location" class="form-control" tabindex="2">
       </div>
       <div class="formGroup">
-        <label for="columns">Columns</label>
-        <input type="text" formControlName="columns" class="form-control">
+        <label for="rows">Rows</label>
+        <input type="text" formControlName="rows" id="rows" class="form-control" tabindex="4">
       </div>
     </div>
   </div>

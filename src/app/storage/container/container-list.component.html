@@ -16,7 +16,7 @@
   <div *ngIf="showList">
     <div class="row" *ngFor="let container of storageContainers">
       <div class="col-md-12">
-        <a [routerLink]="['/storage/areas/' + areaId +'/containers',container.id]">{{container.description}}</a>
+        <a [routerLink]="['/storage/locations/' + locationId +'/containers',container.id]">{{container.description}}</a>
       </div>
     </div>
   </div>

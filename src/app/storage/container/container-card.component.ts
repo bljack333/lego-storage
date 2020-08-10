@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Container } from '@angular/compiler/src/i18n/i18n_ast';
-import { ContainerTypeEnum } from '../../models';
+import { ContainerTypeEnum, Container } from '../../models';
+import { ContainerType2LabelMapper } from '../../shared/mappers/container-type-label-mapper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-container-card',
@@ -8,14 +9,20 @@ import { ContainerTypeEnum } from '../../models';
 })
 export class ContainerCardComponent implements OnInit {
 
+  protected enumMapper = ContainerType2LabelMapper;
+
   @Input() container: Container;
 
-  constructor() { }
+  constructor(private router: Router, ) { }
 
   ngOnInit() {
   }
 
   containerType(type: ContainerTypeEnum): string {
-    return ContainerTypeEnum[type].toString();
+    return this.enumMapper[type];
+  }
+
+  addSlot() {
+    this.router.navigate(['/storage/locations/' + this.container.location + '/containers/' + this.container.id + '/slots/add']);
   }
 }

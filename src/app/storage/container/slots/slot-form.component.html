@@ -1,0 +1,29 @@
+<form [formGroup]="slotForm" autocomplete="off" novalidate (ngSubmit)="saveSlot()">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="formGroup">
+                <label for="row">Row</label>
+                <input type="text" formControlName="row" id="row" class="form-control" tabindex="1">
+            </div>        
+            <div class="formGroup">
+                <label for="row">Column</label>
+                <input type="column" formControlName="column" id="column" class="form-control" tabindex="1">
+            </div>        
+        </div>
+    </div>
+</form>
+<p></p>
+<div class="row" *ngIf="hasDivision">
+    <div class="col-md-12">
+      <a [routerLink]="['/storage/locations/' + locationId + '/containers/' + containerId + '/slots/' + slot.id + '/division/' + division.id]">Slot Division</a>
+    </div>
+</div>
+<p *ngIf="hasDivision"></p>
+<div class="row">
+    <div class="col-md-12">
+        <button *ngIf="!hasDivision" type="button" class="btn btn-secondary">Add Division</button>
+      <button type="submit" class="btn btn-default">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+    </div>
+</div>
+

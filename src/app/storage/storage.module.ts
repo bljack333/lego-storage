@@ -5,17 +5,18 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StorageComponent } from './storage.component';
-import { AreaListComponent } from './area/area-list.component';
-import { AreaCardComponent } from './area/area-card.component';
+import { LocationListComponent } from './location/location-list.component';
+import { LocationCardComponent } from './location/location-card.component';
 import { storageRoutes } from './storage.routes';
 import { StorageService } from './storage.service';
 import { ContainerListComponent } from './container/container-list.component';
 import { ContainerComponent } from './container/container.component';
-import { AreaFormComponent } from './area/area-form.component';
-import { AreaResolverService } from './area/area-resolver.service';
+import { LocationFormComponent } from './location/location-form.component';
+import { LocationResolverService } from './location/location-resolver.service';
 import { ContainerFormComponent } from './container/container-form.component';
 import { ContainerCardComponent } from './container/container-card.component';
 import { ContainerResolverService } from './container/container-resolver.service';
+import { SlotFormComponent } from './container/slots/slot-form.component';
 
 @NgModule({
   imports: [
@@ -26,17 +27,18 @@ import { ContainerResolverService } from './container/container-resolver.service
   ],
   declarations: [
     StorageComponent,
-    AreaCardComponent,
-    AreaListComponent,
+    LocationCardComponent,
+    LocationListComponent,
     ContainerListComponent,
     ContainerComponent,
-    AreaFormComponent,
+    LocationFormComponent,
     ContainerFormComponent,
-    ContainerCardComponent
+    ContainerCardComponent,
+    SlotFormComponent,
     ],
   providers: [
     StorageService,
-    AreaResolverService,
+    LocationResolverService,
     ContainerResolverService
   ],
   exports: [RouterModule]

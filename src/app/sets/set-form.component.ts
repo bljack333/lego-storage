@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IMySet } from '../models';
+import { SetsService } from './sets.service';
 
 @Component({
   selector: 'app-set-form',
@@ -9,11 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SetFormComponent implements OnInit {
   setForm: FormGroup;
+  set: IMySet;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private setService: SetsService) { }
 
   ngOnInit() {
     this.setupForm();
+
+    let setNumber: string = this.route.params['set-number'];
+
+    getSet(setNumber);
   }
 
   setupForm() {
@@ -34,6 +41,10 @@ export class SetFormComponent implements OnInit {
       stickersOnModel: stickersOnModel,
       setState: setState
     });
+  }
+
+  getSet(setNumber: string) {
+    this.set = this.setService.getSetBySetNumber(setNumber);
   }
 
   cancel() {

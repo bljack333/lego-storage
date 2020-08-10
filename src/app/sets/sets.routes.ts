@@ -9,5 +9,5 @@ export const setRoutes = [
     { path: 'boxed/add', component: SetListComponent },
     { path: 'parted-out/add', component: SetListComponent },
     { path: 'unclassified/add', component: SetListComponent },
-    { path: 'set-form/:id', component: SetFormComponent}
+    { path: 'set-form/:set-number', component: SetFormComponent}
 ];

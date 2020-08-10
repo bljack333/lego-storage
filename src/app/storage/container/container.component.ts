@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Container, StorageArea } from '../../models';
+import { Container, StorageLocation } from '../../models';
 import { StorageService } from '../storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ContainerComponent implements OnInit {
 
   container: Container;
-  area: StorageArea;
+  location: StorageLocation;
 
   constructor(private storageService: StorageService, private route: ActivatedRoute, private router: Router) { }
 
@@ -21,10 +21,10 @@ export class ContainerComponent implements OnInit {
       }
     });
 
-    this.storageService.getArea(this.container.storageAreaId).subscribe(area => this.area = area);
+    this.storageService.getLocation(this.container.storageLocationId).subscribe(location => this.location = location);
   }
 
   editContainer() {
-    this.router.navigate(['/storage/areas/' + this.area.id + '/containers/' + this.container.id + '/edit/']);
+    this.router.navigate(['/storage/locations/' + this.location.id + '/containers/' + this.container.id + '/edit/']);
   }
 }

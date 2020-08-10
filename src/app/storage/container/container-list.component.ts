@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ContainerListComponent implements OnInit {
   @Input() storageContainers: Container[];
-  @Input() areaId: number;
+  @Input() locationId: number;
 
   showList = false;
 
@@ -19,10 +19,10 @@ export class ContainerListComponent implements OnInit {
     if (!this.storageContainers) {
 
       if (this.route.snapshot.params['id']) {
-        this.areaId = +this.route.snapshot.params['id'];
+        this.locationId = +this.route.snapshot.params['id'];
       }
 
-      this.storageService.getAreasContainers(this.areaId).subscribe(containers => { this.storageContainers = containers; });
+      this.storageService.getLocationsContainers(this.locationId).subscribe(containers => { this.storageContainers = containers; });
     }
 
     if (this.route.snapshot.routeConfig.component.name === 'ContainerListComponent') {
@@ -33,7 +33,7 @@ export class ContainerListComponent implements OnInit {
   }
 
   addContainer() {
-    this.router.navigate(['/storage/areas/' + this.areaId + '/containers/add']);
+    this.router.navigate(['/storage/locations/' + this.locationId + '/containers/add']);
   }
 
 }
