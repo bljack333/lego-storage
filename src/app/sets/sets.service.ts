@@ -21,4 +21,9 @@ export class SetsService extends BaseService {
     // tslint:disable-next-line:max-line-length
     return this.http.get<IMySet[]>(this.baseUrl + '/api/sets/' + setState, this.httpOptions).pipe(catchError(this.handleError<IMySet[]>('getSetsByState', [])));
   }
+
+  getSetBySetNumber(setNumber: string) {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get<IMySet>(this.baseUrl + '/api/sets/' + setNumber, this.httpOptions).pipe(catchError(this.handleError<IMySet>('getSetBySetNumber')));
+  }
 }

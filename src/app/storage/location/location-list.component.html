@@ -1,0 +1,16 @@
+<div style="padding-top: 20px;">
+  <div class="row">
+    <div class="col-md-3">
+      <button class="btn btn-default" type="button" (click)="addLocation()">Add Storage Location</button>
+    </div>
+  </div>
+</div>
+<div style="padding: 20px;">
+  <div class="row">
+    <div class="col-md-5" *ngFor="let location of locations">
+      <div style="padding: 20px">
+        <app-location-card [location]="location"></app-location-card>
+      </div>
+    </div>
+  </div>
+</div>

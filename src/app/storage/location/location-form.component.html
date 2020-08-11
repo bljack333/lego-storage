@@ -1,0 +1,22 @@
+<div>
+  <h2 *ngIf="id === -1">Create a Storage Location</h2>
+  <h2 *ngIf="id > -1">Edit Storage Location</h2>
+  <hr>
+  <div class="row">
+    <div class="col-md-8">
+      <form autocomplete="off" novalidate [formGroup]="storageLocationForm" (ngSubmit)="saveStorageLocation()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input formControlName="name" id="name" type="text" class="form-control" placeholder="Storage Location Name..."/>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea formControlName="description" id="description" class="form-control" placeholder="Storage Location Description..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" >Save</button>
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>

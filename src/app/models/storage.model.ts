@@ -11,13 +11,14 @@ export class Container {
     containerType: ContainerTypeEnum;
     description: string;
     location: string;
-    storageAreaId: number;
+    storageLocationId: number;
     rows: number;
     columns: number;
     slots: Array<ContainerDivisionSlot>;
+    subContainers: Array<Container>;
 }
 
-export class StorageArea {
+export class StorageLocation {
     id: number;
     name: string;
     description: string;

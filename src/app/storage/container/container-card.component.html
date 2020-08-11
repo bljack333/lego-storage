@@ -1,13 +1,27 @@
-<div style="padding:5px;" class="card" [routerLink]="['/storage/areas/', container.storageAreaId, 'containers', container.id]">
+<div style="padding:5px;" class="card" [routerLink]="['/storage/locations/', container.storageLocationId, 'containers', container.id]">
   <div class="row">
     <div class="col-md-12">
-      <h3>{{containerType(container.containerType)}}</h3>
-      <p>{{container.description}}</p>
+      <h3>{{container.description}}</h3>
+      <p>{{containerType(container.containerType)}}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div>{{container.location}}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p>Slots</p>
+      <div class="row" *ngFor="let slot of container.slots">
+        <div class="col-md-12">Row: {{slot.row}} Col: {{slot.column}}</div>
+      </div>
+      <div *ngIf="container.subContainer?.length>0">
+        <p>Sub Containers</p>
+        <div class="row" *ngFor="let subContainer of container.subContainer">
+          <div class="col-md-12">{{subContainer.description}}</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
